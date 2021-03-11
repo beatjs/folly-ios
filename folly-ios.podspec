@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.summary          = 'iOS framework of Folly that support use_frameworks!.'
 
   s.description      = <<-DESC
-  Folly has stoped updating until version 2016.09.26.00 on CocoaPods. We want create a react-native vessel in order to integrate with main project, but the old version don't support we will do. So this the reasion that folly-ios lib presented.
+  Folly has stoped updating until version 2016.09.26.00 on CocoaPods. We want to create a react-native vessel to integrate with the main project. But it was not supported by the old version. So this the reasion that folly-ios lib presented.
                        DESC
 
   s.homepage         = 'https://github.com/beatjs/folly-ios'
@@ -26,10 +26,22 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { "USE_HEADERMAP" => "NO",
                                "CLANG_CXX_LANGUAGE_STANDARD" => "c++14",
                                "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/DoubleConversion\"" }
-  s.compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_PTHREAD=1 -Wno-comma -Wno-shorten-64-to-32 -Wno-documentation'
+  s.compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_PTHREAD=1'
                         
   
   s.source_files = 'folly/**/*.{cpp}'
+  s.preserve_paths = 'folly/*.h',
+                     'folly/container/*.h',
+                     'folly/container/detail/*.h',
+                     'folly/detail/*.h',
+                     'folly/functional/*.h',
+                     'folly/hash/*.h',
+                     'folly/lang/*.h',
+                     'folly/memory/*.h',
+                     'folly/memory/detail/*.h',
+                     'folly/net/*.h',
+                     'folly/net/detail/*.h',
+                     'folly/portability/*.h'
   
   s.dependency 'boost-for-react-native'
   s.dependency 'DoubleConversion'
