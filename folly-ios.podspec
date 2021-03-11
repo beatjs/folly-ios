@@ -21,7 +21,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/beatjs/folly-ios.git', :tag => s.version.to_s }
   
   s.module_name = 'folly'
-  s.swift_version = '5.0'
   s.ios.deployment_target = '11.0'
   s.pod_target_xcconfig = { "USE_HEADERMAP" => "NO",
                                "CLANG_CXX_LANGUAGE_STANDARD" => "c++14",
@@ -47,4 +46,5 @@ Pod::Spec.new do |s|
   s.dependency 'DoubleConversion'
   s.dependency 'glog'
   
+  s.platforms = { :ios => "11.0"}
 end
